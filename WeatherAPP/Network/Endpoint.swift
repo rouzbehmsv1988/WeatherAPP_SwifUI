@@ -11,7 +11,7 @@ import Combine
 // you can input your baseURL and API Key here inorder to have access to the API service you want
 enum Endpoint {
     static let baseURL = URL(string: "https://api.openweathermap.org")!
-    static let apiKey = "a264283aeba2cecadc21dfbc37bd177d"
+    static let apiKey = "Your API Key"
     case getWeather(lat: CGFloat, long: CGFloat)
     enum MethodTypes: String {
         case get = "GET"
