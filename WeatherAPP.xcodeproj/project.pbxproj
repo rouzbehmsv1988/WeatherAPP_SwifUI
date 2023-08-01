@@ -14,6 +14,16 @@
 		D571899E2A77B7AE00F101BB /* WeatherAPPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D571899D2A77B7AE00F101BB /* WeatherAPPTests.swift */; };
 		D57189A82A77B7AE00F101BB /* WeatherAPPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57189A72A77B7AE00F101BB /* WeatherAPPUITests.swift */; };
 		D57189AA2A77B7AE00F101BB /* WeatherAPPUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57189A92A77B7AE00F101BB /* WeatherAPPUITestsLaunchTests.swift */; };
+		D57189B82A77BA5B00F101BB /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57189B72A77BA5B00F101BB /* APIClient.swift */; };
+		D57189BB2A77C71200F101BB /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57189BA2A77C71200F101BB /* Endpoint.swift */; };
+		D57189BD2A77CA6500F101BB /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57189BC2A77CA6500F101BB /* WeatherResponse.swift */; };
+		D57189C02A77CB9600F101BB /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57189BF2A77CB9600F101BB /* WeatherViewModel.swift */; };
+		D57189C22A77CD2400F101BB /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57189C12A77CD2400F101BB /* APIManager.swift */; };
+		D57189C52A78001B00F101BB /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57189C42A78001B00F101BB /* LottieView.swift */; };
+		D57189C82A78008800F101BB /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = D57189C72A78008800F101BB /* Lottie */; };
+		D57189CA2A7803A400F101BB /* Clouds.json in Resources */ = {isa = PBXBuildFile; fileRef = D57189C92A7803A400F101BB /* Clouds.json */; };
+		D57189CC2A78069000F101BB /* Windy.json in Resources */ = {isa = PBXBuildFile; fileRef = D57189CB2A78069000F101BB /* Windy.json */; };
+		D57189CE2A78ED5D00F101BB /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57189CD2A78ED5D00F101BB /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +55,15 @@
 		D57189A32A77B7AE00F101BB /* WeatherAPPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherAPPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D57189A72A77B7AE00F101BB /* WeatherAPPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPPUITests.swift; sourceTree = "<group>"; };
 		D57189A92A77B7AE00F101BB /* WeatherAPPUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPPUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D57189B72A77BA5B00F101BB /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		D57189BA2A77C71200F101BB /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		D57189BC2A77CA6500F101BB /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
+		D57189BF2A77CB9600F101BB /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
+		D57189C12A77CD2400F101BB /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		D57189C42A78001B00F101BB /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		D57189C92A7803A400F101BB /* Clouds.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Clouds.json; sourceTree = "<group>"; };
+		D57189CB2A78069000F101BB /* Windy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Windy.json; sourceTree = "<group>"; };
+		D57189CD2A78ED5D00F101BB /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D57189C82A78008800F101BB /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,8 +115,14 @@
 		D571898A2A77B7AD00F101BB /* WeatherAPP */ = {
 			isa = PBXGroup;
 			children = (
+				D57189CB2A78069000F101BB /* Windy.json */,
+				D57189C92A7803A400F101BB /* Clouds.json */,
+				D57189CF2A79017600F101BB /* View */,
+				D57189C32A78000E00F101BB /* Helpers */,
+				D57189BE2A77CB8200F101BB /* ViewModel */,
+				D57189B92A77C54800F101BB /* Model */,
+				D57189B62A77B7B900F101BB /* Network */,
 				D571898B2A77B7AD00F101BB /* WeatherAPPApp.swift */,
-				D571898D2A77B7AD00F101BB /* ContentView.swift */,
 				D571898F2A77B7AE00F101BB /* Assets.xcassets */,
 				D57189912A77B7AE00F101BB /* WeatherAPP.entitlements */,
 				D57189922A77B7AE00F101BB /* Preview Content */,
@@ -129,6 +155,49 @@
 			path = WeatherAPPUITests;
 			sourceTree = "<group>";
 		};
+		D57189B62A77B7B900F101BB /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				D57189B72A77BA5B00F101BB /* APIClient.swift */,
+				D57189BA2A77C71200F101BB /* Endpoint.swift */,
+				D57189C12A77CD2400F101BB /* APIManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		D57189B92A77C54800F101BB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D57189BC2A77CA6500F101BB /* WeatherResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D57189BE2A77CB8200F101BB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D57189BF2A77CB9600F101BB /* WeatherViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D57189C32A78000E00F101BB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D57189C42A78001B00F101BB /* LottieView.swift */,
+				D57189CD2A78ED5D00F101BB /* LocationManager.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		D57189CF2A79017600F101BB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D571898D2A77B7AD00F101BB /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -145,6 +214,9 @@
 			dependencies = (
 			);
 			name = WeatherAPP;
+			packageProductDependencies = (
+				D57189C72A78008800F101BB /* Lottie */,
+			);
 			productName = WeatherAPP;
 			productReference = D57189882A77B7AD00F101BB /* WeatherAPP.app */;
 			productType = "com.apple.product-type.application";
@@ -217,6 +289,9 @@
 				Base,
 			);
 			mainGroup = D571897F2A77B7AD00F101BB;
+			packageReferences = (
+				D57189C62A78008800F101BB /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = D57189892A77B7AD00F101BB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -234,7 +309,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D57189942A77B7AE00F101BB /* Preview Assets.xcassets in Resources */,
+				D57189CC2A78069000F101BB /* Windy.json in Resources */,
 				D57189902A77B7AE00F101BB /* Assets.xcassets in Resources */,
+				D57189CA2A7803A400F101BB /* Clouds.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +337,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D571898E2A77B7AD00F101BB /* ContentView.swift in Sources */,
+				D57189C02A77CB9600F101BB /* WeatherViewModel.swift in Sources */,
+				D57189BD2A77CA6500F101BB /* WeatherResponse.swift in Sources */,
 				D571898C2A77B7AD00F101BB /* WeatherAPPApp.swift in Sources */,
+				D57189BB2A77C71200F101BB /* Endpoint.swift in Sources */,
+				D57189B82A77BA5B00F101BB /* APIClient.swift in Sources */,
+				D57189C22A77CD2400F101BB /* APIManager.swift in Sources */,
+				D57189C52A78001B00F101BB /* LottieView.swift in Sources */,
+				D57189CE2A78ED5D00F101BB /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +501,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"WeatherAPP/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "App needs privilage to access location";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -426,7 +511,6 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -453,6 +537,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"WeatherAPP/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "App needs privilage to access location";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -462,7 +547,6 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -604,6 +688,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D57189C62A78008800F101BB /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D57189C72A78008800F101BB /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D57189C62A78008800F101BB /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D57189802A77B7AD00F101BB /* Project object */;
 }
