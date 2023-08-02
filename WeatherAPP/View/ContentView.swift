@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Lottie
+import Combine
 struct ContentView: View {
     @ObservedObject var viewModel = WeatherViewModel()
     @State var searchText = ""
@@ -14,10 +15,13 @@ struct ContentView: View {
     @State var weather = ""
     var body: some View {
             ZStack {
-                if viewModel.newDataLoaded {
-                    LottieView(loopMode: .loop, name: "\(viewModel.model.first?.current?.condition?.code ?? 0 == 1009 ? "Clouds": "Clear")").opacity(0.9)
-                }
+                //TODO: if you want to have the lottie animation background uncomment the below line and choose a naming convention for your animation files that it goes along with your codes
+//                if viewModel.newDataLoaded {
+//                    LottieView(loopMode: .loop, name: "\(viewModel.model.first?.current?.condition?.code ?? 0 == 1009 ? "Clouds": "Clear")").opacity(0.9)
+//                }
+              
                 VStack(alignment: .center, spacing: 20) {
+                    
                     TextField("Enter City", text: $viewModel.cityText).focused($nameIsFocused).frame(height: 50).background(Color.white.opacity(0.4)).cornerRadius(10)
                     Spacer()
                     if !viewModel.viewData.isEmpty && !viewModel.cityText.isEmpty {
@@ -31,7 +35,7 @@ struct ContentView: View {
                             viewModel.searchCity(name: item.title)
                             nameIsFocused = false
                         }
-                        }.frame(height: 200)
+                        }.frame(height: 120)
                 }
                     Spacer()
                     
@@ -45,11 +49,11 @@ struct ContentView: View {
                     viewModel.model.first?.current?.getImage()
 
                     if let data = viewModel.model.first?.forecast?.forecastday {
-                        
                         List(data) { item in
-                            WeatherDayRowView(data: item.getRowData()).background(Color.white.opacity(0.3))
-                        }.scrollContentBackground(.hidden)
-                            .background(Color.white.opacity(0.0)).frame(maxHeight: .infinity, alignment: .bottom)
+                            VStack {
+                                WeatherDayRowView(data: item.getRowData())
+                            }.listRowBackground(Color.white.opacity(0.3))
+                        }.background(Color.blue).scrollContentBackground(.hidden).frame(maxHeight: .infinity, alignment: .bottom)
                     }
                         
 

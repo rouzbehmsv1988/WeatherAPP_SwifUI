@@ -14,6 +14,7 @@ final class WeatherViewModel: ObservableObject {
     @Published var model: [WeatherResponse] = []
     var cityName: String = ""
     var newDataLoaded = false
+    var workItem: DispatchWorkItem?
     @Published var viewData = [LocalSearchViewData]()
     var locationManager = LocationManager(center: CLLocationCoordinate2D(latitude: 40.730610, longitude: -73.935242))
     private var cancellableData: AnyCancellable?
@@ -39,7 +40,7 @@ final class WeatherViewModel: ObservableObject {
     }
     
     private func getWeather(cityName: String) {
-        cancellableData = APIManager<WeatherResponse>.shared.request(.forcaste(cityName: cityName, numberOfDays: 7)).mapError({ (error) -> Error in
+        cancellableData = APIManager<WeatherResponse>.shared.request(.forcaste(cityName: cityName, numberOfDays: 10)).mapError({ (error) -> Error in
             print(error)
             return error
         })
@@ -62,7 +63,12 @@ final class WeatherViewModel: ObservableObject {
     }
     
     private func searchForCity(text: String) {
-        locationManager.searchCities(searchText: text)
+        workItem?.cancel()
+        let task  =  DispatchWorkItem { [weak self] in
+            self?.locationManager.searchCities(searchText: text)
+        }
+        workItem = task
+        DispatchQueue.global(qos: .userInteractive).asyncAfter(deadline: .now() + 0.5, execute: task)
     }
     
     

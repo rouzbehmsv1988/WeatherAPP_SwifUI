@@ -19,12 +19,12 @@ struct WeatherDayRowView: View {
     var body: some View {
         HStack(spacing: 20) {
            
-            Text(getTodayWeekDay())
+            Text(getTodayWeekDay()).background(.clear).foregroundColor(.white).font(.system(size: 12))
             data.image
-            Text("\(Int(data.minTemp))")
+            Text("\(Int(data.minTemp))" + "\u{00B0}").foregroundColor(.white).font(.system(size: 12))
             ProgressView(value: data.minTemp, total: data.maxTemp).tint(.yellow)
-            Text("\(Int(data.maxTemp))")
-        } .background(Color.white.opacity(0.1))
+            Text("\(Int(data.maxTemp))" + "\u{00B0}").foregroundColor(.white).font(.system(size: 12))
+        } .background(Color.clear)
     }
                  
     func getTodayWeekDay()-> String {
