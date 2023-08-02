@@ -10,34 +10,52 @@ import Lottie
 struct ContentView: View {
     @ObservedObject var viewModel = WeatherViewModel()
     @State var searchText = ""
+    @FocusState private var nameIsFocused: Bool
+    @State var weather = ""
     var body: some View {
             ZStack {
-                LottieView(loopMode: .loop, name: viewModel.model.first?.weather.first?.main ?? "").frame(maxWidth: .infinity, maxHeight: .infinity).opacity(0.9).cornerRadius(10).shadow(radius: 3)
-                VStack(spacing: 20) {
-                
-                    VStack(alignment: .leading) {
-                        TextField("Enter City", text: $viewModel.cityText).frame(height: 50).background(Color.white.opacity(0.4))
-                        if !viewModel.viewData.isEmpty && !viewModel.cityText.isEmpty {
-                            List(viewModel.viewData) { item in
-                            VStack(alignment: .leading) {
-                                Text(item.title)
-                                Text(item.subtitle)
-                                    .foregroundColor(.secondary)
-                            }
+                if viewModel.newDataLoaded {
+                    LottieView(loopMode: .loop, name: "\(viewModel.model.first?.current?.condition?.code ?? 0 == 1009 ? "Clouds": "Clear")").opacity(0.9)
+                }
+                VStack(alignment: .center, spacing: 20) {
+                    TextField("Enter City", text: $viewModel.cityText).focused($nameIsFocused).frame(height: 50).background(Color.white.opacity(0.4)).cornerRadius(10)
+                    Spacer()
+                    if !viewModel.viewData.isEmpty && !viewModel.cityText.isEmpty {
+                        List(viewModel.viewData) { item in
+                        VStack(alignment: .leading) {
+                            Text(item.title)
+                            Text(item.subtitle)
+                                .foregroundColor(.secondary)
+                        }.onTapGesture {
+                            viewModel.cityText = ""
+                            viewModel.searchCity(name: item.title)
+                            nameIsFocused = false
                         }
-                    }
-                    }
+                        }.frame(height: 200)
+                }
                     Spacer()
-                    Text("\(viewModel.cityName)") .font(.system(size: 40, weight: .bold, design: .rounded))
-                    Text("Feels like: " + "\(viewModel.calculateCelsius(fahrenheit: Double(viewModel.model.first?.main?.feelsLike ?? 0)))")
-                    Text("Highest: " + "\(viewModel.calculateCelsius(fahrenheit: Double(viewModel.model.first?.main?.tempMax ?? 0)))")
-                    Text("Lowest: " + "\(viewModel.calculateCelsius(fahrenheit: Double(viewModel.model.first?.main?.tempMin ?? 0))))")
-                    Spacer()
-                }.padding()
-            }.background(Color.blue)
-            Text("data")
-        
-        .padding()
+                    
+                    Text(viewModel.cityName).font(.largeTitle).whiteStyle
+                    Text("\(viewModel.model.first?.current?.temp ?? 0)" + "\u{00B0}").font(.largeTitle).whiteStyle
+                    Text("\(viewModel.model.first?.current?.condition?.text ?? "")").whiteStyle
+                    HStack {
+                        Text("H:\(viewModel.model.first?.forecast?.forecastday?.first?.day?.maxTemp ?? 0)" + "\u{00B0}").whiteStyle
+                        Text("L:\(viewModel.model.first?.forecast?.forecastday?.first?.day?.minTemp ?? 0)" + "\u{00B0}").whiteStyle
+                    }
+                    viewModel.model.first?.current?.getImage()
+
+                    if let data = viewModel.model.first?.forecast?.forecastday {
+                        
+                        List(data) { item in
+                            WeatherDayRowView(data: item.getRowData()).background(Color.white.opacity(0.3))
+                        }.scrollContentBackground(.hidden)
+                            .background(Color.white.opacity(0.0)).frame(maxHeight: .infinity, alignment: .bottom)
+                    }
+                        
+
+
+                }
+            }.padding().background(Color.blue)
     }
 }
 

@@ -10,9 +10,14 @@ import Combine
 
 // you can input your baseURL and API Key here inorder to have access to the API service you want
 enum Endpoint {
-    static let baseURL = URL(string: "https://api.openweathermap.org")!
-    static let apiKey = "Your API Key"
+    static let baseURL = URL(string: "https://weatherapi-com.p.rapidapi.com")!
+    static let headers = [
+        "X-RapidAPI-Key": "09911ea626msh0417a8d31c5c3dep117be2jsne843988d4cd1",
+        "X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com"
+    ]
+    static let apiKey = "09911ea626msh0417a8d31c5c3dep117be2jsne843988d4cd1"
     case getWeather(lat: CGFloat, long: CGFloat)
+    case forcaste(cityName: String, numberOfDays: Int)
     enum MethodTypes: String {
         case get = "GET"
         case put = "PUT"
@@ -22,8 +27,10 @@ enum Endpoint {
     // add your path here based on each endpoint you want to call
     var path: String {
         switch self {
-        case .getWeather(let lat, let long):
+        case .getWeather:
             return "/data/2.5/weather"
+        case .forcaste:
+            return "/forecast.json"
             
         }
         
@@ -32,6 +39,8 @@ enum Endpoint {
     var method: MethodTypes {
         switch self {
         case .getWeather:
+            return .get
+        default:
             return .get
         }
     }
@@ -42,8 +51,10 @@ enum Endpoint {
         case .getWeather(let lat, let long):
             items.append(URLQueryItem(name: "lat", value: "\(lat)"))
             items.append(URLQueryItem(name: "lon", value: "\(long)"))
+        case .forcaste(let city, let days):
+            items.append(URLQueryItem(name: "q", value: "\(city)"))
+            items.append(URLQueryItem(name: "days", value: "\(days)"))
         }
-        items.append(URLQueryItem(name: "appid", value: Endpoint.apiKey))
         return items
     }
     
@@ -57,6 +68,7 @@ enum Endpoint {
         guard let url = component.url else {fatalError("couldnt find url")}
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
+        request.allHTTPHeaderFields = Endpoint.headers
         return request
     }
 

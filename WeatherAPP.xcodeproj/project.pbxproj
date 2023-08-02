@@ -24,6 +24,9 @@
 		D57189CA2A7803A400F101BB /* Clouds.json in Resources */ = {isa = PBXBuildFile; fileRef = D57189C92A7803A400F101BB /* Clouds.json */; };
 		D57189CC2A78069000F101BB /* Windy.json in Resources */ = {isa = PBXBuildFile; fileRef = D57189CB2A78069000F101BB /* Windy.json */; };
 		D57189CE2A78ED5D00F101BB /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57189CD2A78ED5D00F101BB /* LocationManager.swift */; };
+		D57189D32A794A6600F101BB /* Clear.json in Resources */ = {isa = PBXBuildFile; fileRef = D57189D22A794A6600F101BB /* Clear.json */; };
+		D57189D52A79A76D00F101BB /* WeatherDayRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57189D42A79A76C00F101BB /* WeatherDayRowView.swift */; };
+		D57189D72A7A7B6400F101BB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57189D62A7A7B6400F101BB /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +67,9 @@
 		D57189C92A7803A400F101BB /* Clouds.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Clouds.json; sourceTree = "<group>"; };
 		D57189CB2A78069000F101BB /* Windy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Windy.json; sourceTree = "<group>"; };
 		D57189CD2A78ED5D00F101BB /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		D57189D22A794A6600F101BB /* Clear.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Clear.json; sourceTree = "<group>"; };
+		D57189D42A79A76C00F101BB /* WeatherDayRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDayRowView.swift; sourceTree = "<group>"; };
+		D57189D62A7A7B6400F101BB /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +121,7 @@
 		D571898A2A77B7AD00F101BB /* WeatherAPP */ = {
 			isa = PBXGroup;
 			children = (
+				D57189D22A794A6600F101BB /* Clear.json */,
 				D57189CB2A78069000F101BB /* Windy.json */,
 				D57189C92A7803A400F101BB /* Clouds.json */,
 				D57189CF2A79017600F101BB /* View */,
@@ -194,6 +201,8 @@
 			isa = PBXGroup;
 			children = (
 				D571898D2A77B7AD00F101BB /* ContentView.swift */,
+				D57189D42A79A76C00F101BB /* WeatherDayRowView.swift */,
+				D57189D62A7A7B6400F101BB /* Extensions.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -311,6 +320,7 @@
 				D57189942A77B7AE00F101BB /* Preview Assets.xcassets in Resources */,
 				D57189CC2A78069000F101BB /* Windy.json in Resources */,
 				D57189902A77B7AE00F101BB /* Assets.xcassets in Resources */,
+				D57189D32A794A6600F101BB /* Clear.json in Resources */,
 				D57189CA2A7803A400F101BB /* Clouds.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,7 +353,9 @@
 				D57189BB2A77C71200F101BB /* Endpoint.swift in Sources */,
 				D57189B82A77BA5B00F101BB /* APIClient.swift in Sources */,
 				D57189C22A77CD2400F101BB /* APIManager.swift in Sources */,
+				D57189D52A79A76D00F101BB /* WeatherDayRowView.swift in Sources */,
 				D57189C52A78001B00F101BB /* LottieView.swift in Sources */,
+				D57189D72A7A7B6400F101BB /* Extensions.swift in Sources */,
 				D57189CE2A78ED5D00F101BB /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

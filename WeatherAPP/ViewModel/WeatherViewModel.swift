@@ -13,6 +13,7 @@ import CoreLocation
 final class WeatherViewModel: ObservableObject {
     @Published var model: [WeatherResponse] = []
     var cityName: String = ""
+    var newDataLoaded = false
     @Published var viewData = [LocalSearchViewData]()
     var locationManager = LocationManager(center: CLLocationCoordinate2D(latitude: 40.730610, longitude: -73.935242))
     private var cancellableData: AnyCancellable?
@@ -32,20 +33,32 @@ final class WeatherViewModel: ObservableObject {
     }
     
     private func getLocation(_ location: CLLocation?, name: String?) {
-        self.cityName = name ?? "Munich"
-        getWeather(lat: CGFloat(location?.coordinate.latitude ?? 0), long: CGFloat(location?.coordinate.longitude ?? 0))
+        guard let name = name else { return }
+        self.cityName = name
+        getWeather(cityName: name)
     }
     
-    private func getWeather(lat: CGFloat, long: CGFloat) {
-        cancellableData = APIManager<WeatherResponse>.shared.request(.getWeather(lat: lat, long: long)).mapError({ (error) -> Error in
+    private func getWeather(cityName: String) {
+        cancellableData = APIManager<WeatherResponse>.shared.request(.forcaste(cityName: cityName, numberOfDays: 7)).mapError({ (error) -> Error in
             print(error)
             return error
         })
         .sink(receiveCompletion: { _ in },
               receiveValue: { [weak self] in
+            self?.newDataLoaded = true
+            print($0)
             self?.model = [$0]
         }) 
         
+    }
+    
+    func searchCity(name: String) {
+        newDataLoaded = false
+        locationManager.getCoordinateFrom(address: name) { [weak self] coordinate, error in
+            guard let coord = coordinate else { return }
+            self?.getLocation(CLLocation (latitude: coord.latitude, longitude: coord.longitude), name: name)
+       
+        }
     }
     
     private func searchForCity(text: String) {
