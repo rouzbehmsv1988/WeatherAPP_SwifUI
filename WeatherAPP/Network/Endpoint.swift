@@ -12,7 +12,7 @@ import Combine
 enum Endpoint {
     static let baseURL = URL(string: "https://weatherapi-com.p.rapidapi.com")!
     static let headers = [
-        "X-RapidAPI-Key": "09911ea626msh0417a8d31c5c3dep117be2jsne843988d4cd1",
+        "X-RapidAPI-Key": "YOUR API KEY",
         "X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com"
     ]
     static let apiKey = "09911ea626msh0417a8d31c5c3dep117be2jsne843988d4cd1"
