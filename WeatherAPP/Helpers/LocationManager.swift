@@ -22,7 +22,7 @@ struct LocalSearchViewData: Identifiable {
     }
 }
 
-
+// MARK: location delegates
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     let localSearchPublisher = PassthroughSubject<[MKMapItem], Never>()
     private let center: CLLocationCoordinate2D

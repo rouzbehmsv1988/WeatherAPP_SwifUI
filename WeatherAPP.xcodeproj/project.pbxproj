@@ -27,6 +27,7 @@
 		D57189D32A794A6600F101BB /* Clear.json in Resources */ = {isa = PBXBuildFile; fileRef = D57189D22A794A6600F101BB /* Clear.json */; };
 		D57189D52A79A76D00F101BB /* WeatherDayRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57189D42A79A76C00F101BB /* WeatherDayRowView.swift */; };
 		D57189D72A7A7B6400F101BB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57189D62A7A7B6400F101BB /* Extensions.swift */; };
+		D5718A252A7D2E6C00F101BB /* RoMoNetwork in Frameworks */ = {isa = PBXBuildFile; productRef = D5718A242A7D2E6C00F101BB /* RoMoNetwork */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5718A252A7D2E6C00F101BB /* RoMoNetwork in Frameworks */,
 				D57189C82A78008800F101BB /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -105,6 +107,7 @@
 				D571899C2A77B7AE00F101BB /* WeatherAPPTests */,
 				D57189A62A77B7AE00F101BB /* WeatherAPPUITests */,
 				D57189892A77B7AD00F101BB /* Products */,
+				D5718A1A2A7D15A200F101BB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -207,6 +210,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		D5718A1A2A7D15A200F101BB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -225,6 +235,7 @@
 			name = WeatherAPP;
 			packageProductDependencies = (
 				D57189C72A78008800F101BB /* Lottie */,
+				D5718A242A7D2E6C00F101BB /* RoMoNetwork */,
 			);
 			productName = WeatherAPP;
 			productReference = D57189882A77B7AD00F101BB /* WeatherAPP.app */;
@@ -300,6 +311,7 @@
 			mainGroup = D571897F2A77B7AD00F101BB;
 			packageReferences = (
 				D57189C62A78008800F101BB /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				D5718A232A7D2E6C00F101BB /* XCRemoteSwiftPackageReference "ROMONetwork_SPM" */,
 			);
 			productRefGroup = D57189892A77B7AD00F101BB /* Products */;
 			projectDirPath = "";
@@ -710,6 +722,14 @@
 				minimumVersion = 4.0.0;
 			};
 		};
+		D5718A232A7D2E6C00F101BB /* XCRemoteSwiftPackageReference "ROMONetwork_SPM" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rouzbehmsv1988/ROMONetwork_SPM.git";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -717,6 +737,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D57189C62A78008800F101BB /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		D5718A242A7D2E6C00F101BB /* RoMoNetwork */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D5718A232A7D2E6C00F101BB /* XCRemoteSwiftPackageReference "ROMONetwork_SPM" */;
+			productName = RoMoNetwork;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

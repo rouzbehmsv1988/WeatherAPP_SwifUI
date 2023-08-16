@@ -27,15 +27,15 @@ struct ContentView: View {
 
                     
                     Text(viewModel.cityName).font(.largeTitle).whiteStyle
-                    Text("\(viewModel.model.first?.current?.temp ?? 0)" + "\u{00B0}").font(.largeTitle).whiteStyle
-                    Text("\(viewModel.model.first?.current?.condition?.text ?? "")").whiteStyle
+                    Text("\(viewModel.model?.current?.temp ?? 0)" + "\u{00B0}").font(.largeTitle).whiteStyle
+                    Text("\(viewModel.model?.current?.condition?.text ?? "")").whiteStyle
                     HStack {
-                        Text("H:\(viewModel.model.first?.forecast?.forecastday?.first?.day?.maxTemp ?? 0)" + "\u{00B0}").whiteStyle
-                        Text("L:\(viewModel.model.first?.forecast?.forecastday?.first?.day?.minTemp ?? 0)" + "\u{00B0}").whiteStyle
+                        Text("H:\(viewModel.model?.forecast?.forecastday?.first?.day?.maxTemp ?? 0)" + "\u{00B0}").whiteStyle
+                        Text("L:\(viewModel.model?.forecast?.forecastday?.first?.day?.minTemp ?? 0)" + "\u{00B0}").whiteStyle
                     }
-                    viewModel.model.first?.current?.getImage()
+                    viewModel.model?.current?.getImage()
 
-                    if let data = viewModel.model.first?.forecast?.forecastday {
+                    if let data = viewModel.model?.forecast?.forecastday {
                         List(data) { item in
                             VStack {
                                 WeatherDayRowView(data: item.getRowData())

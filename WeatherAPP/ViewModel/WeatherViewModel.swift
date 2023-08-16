@@ -8,10 +8,8 @@
 import Foundation
 import Combine
 import CoreLocation
-
-
 final class WeatherViewModel: ObservableObject {
-    @Published var model: [WeatherResponse] = []
+    @Published var model: WeatherResponse?
     var cityName: String = ""
     var newDataLoaded = false
     var workItem: DispatchWorkItem?
@@ -48,11 +46,13 @@ final class WeatherViewModel: ObservableObject {
               receiveValue: { [weak self] in
             self?.newDataLoaded = true
             print($0)
-            self?.model = [$0]
+            self?.model = $0
         }) 
         
     }
     
+    
+
     func searchCity(name: String) {
         newDataLoaded = false
         locationManager.getCoordinateFrom(address: name) { [weak self] coordinate, error in

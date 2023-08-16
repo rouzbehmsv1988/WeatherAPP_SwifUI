@@ -15,7 +15,6 @@ enum Endpoint {
         "X-RapidAPI-Key": "Your API KEY",
         "X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com"
     ]
-    static let apiKey = "09911ea626msh0417a8d31c5c3dep117be2jsne843988d4cd1"
     case getWeather(lat: CGFloat, long: CGFloat)
     case forcaste(cityName: String, numberOfDays: Int)
     enum MethodTypes: String {
