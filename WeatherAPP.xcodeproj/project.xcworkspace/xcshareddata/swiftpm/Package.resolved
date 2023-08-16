@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "lottie-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/airbnb/lottie-ios",
+      "state" : {
+        "revision" : "d6feea26a370019b4d3a85f5984cb95a2734776f",
+        "version" : "4.2.0"
+      }
+    },
+    {
+      "identity" : "romonetwork_spm",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/rouzbehmsv1988/ROMONetwork_SPM.git",
+      "state" : {
+        "branch" : "develop",
+        "revision" : "816a42721f09ca405c1197bba6a7fe8fa2c99bb6"
+      }
+    }
+  ],
+  "version" : 2
+}
