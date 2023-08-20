@@ -14,10 +14,13 @@ struct APIClient {
             return URLSession.shared
                 .dataTaskPublisher(for: request)
                 .receive(on: DispatchQueue.main)
-                .map(\.data)
+                .tryMap(\.data)
                 .decode(
                   type: T.self,
-                  decoder: JSONDecoder())
+                  decoder: JSONDecoder()) .mapError { error in
+                      print("Decoding Error: \(error)") // Print the decoding error
+                      return error
+                  }
                 .eraseToAnyPublisher()
     }
 

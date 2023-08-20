@@ -12,7 +12,7 @@ import Combine
 enum Endpoint {
     static let baseURL = URL(string: "https://weatherapi-com.p.rapidapi.com")!
     static let headers = [
-        "X-RapidAPI-Key": "Your API KEY",
+        "X-RapidAPI-Key": "Your API Key",
         "X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com"
     ]
     case getWeather(lat: CGFloat, long: CGFloat)

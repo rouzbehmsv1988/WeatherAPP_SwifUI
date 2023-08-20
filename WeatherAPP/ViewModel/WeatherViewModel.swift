@@ -10,6 +10,7 @@ import Combine
 import CoreLocation
 final class WeatherViewModel: ObservableObject {
     @Published var model: WeatherResponse?
+    @Published var searchedCities = Set<String>()
     var cityName: String = ""
     var newDataLoaded = false
     var workItem: DispatchWorkItem?
@@ -51,14 +52,24 @@ final class WeatherViewModel: ObservableObject {
         
     }
     
-    
+    func chooseWeatherIcon(_ text: String) -> String {
+        switch text {
+        case let str where str.lowercased().contains("cloud.rain.fill"):
+            return ""
+        case let str where str.lowercased().contains("cloud.fill"):
+            return ""
+        default:
+            return ""
+        }
+
+    }
 
     func searchCity(name: String) {
         newDataLoaded = false
         locationManager.getCoordinateFrom(address: name) { [weak self] coordinate, error in
             guard let coord = coordinate else { return }
             self?.getLocation(CLLocation (latitude: coord.latitude, longitude: coord.longitude), name: name)
-       
+            self?.searchedCities.insert(name)
         }
     }
     
